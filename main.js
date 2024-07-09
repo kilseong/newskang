@@ -4,7 +4,7 @@ let news = [];
 const getLatesNews = async()=>{
   const url = new URL(
    // `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
-   `http://times-node-env.eba-appvq3ef.ap-northeast-2.elasticbeanstalk.com/top-headlines?q=${keyword}&country=kr&pageSize=${PAGE_SIZE}`
+   `https://newskang.netlify.app/top-headlines?country=kr`
   );
   
   const response = await fetch(url);
