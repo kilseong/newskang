@@ -1,10 +1,12 @@
 const API_KEY = `d0bdfb14f0c84be0b4d39e8615497e5e`;
+const keyword = "";
+const PAGE_SIZE = "10";
 let news = [];
 
 const getLatesNews = async()=>{
   const url = new URL(
    // `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
-   `https://newskang.netlify.app/top-headlines?country=kr`
+   `https://newskang.netlify.app/top-headlines?q=${keyword}&country=kr&pageSize=${PAGE_SIZE}`
   );
   
   const response = await fetch(url);
