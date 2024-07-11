@@ -78,3 +78,50 @@
   background-color: beige;
   border-radius: 3px;
 }
+
+/* .search-button {
+  background-color: rgb(86, 123, 149);
+  border: 1px solid rgb(50, 104, 145);
+  color: rgb(255, 255, 255);
+  height: 33px;
+  border-radius: 3px;
+}
+#search-input {
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 3px;
+  height: 33px;
+}
+
+#input-area {
+  display: none;
+} */
+
+
+
+@media screen and (max-width: 63rem) {
+  .hide {
+    display: inline;
+  }
+  .menus {
+    display: none;
+  }
+}
+.pagenation-nav {
+  display: flex;
+  justify-content: center;
+}
+.pagination {
+  margin-top: 1em;
+}
+.page-item.active .page-link{
+    background-color: burlywood;
+    color: white;
+    border-color: burlywood;
+}
+.page-link{
+    color:burlywood
+}
+.col-lg-8{
+    margin-top:1em
+}
+
