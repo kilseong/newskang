@@ -6,7 +6,7 @@ let newsList = [];
 const getLatesNews = async()=>{
   const url = new URL(
    // `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
-   `https://newskang.netlify.app/top-headlines?q=${keyword}&country=kr&pageSize=${PAGE_SIZE}`
+   `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${keyword}&country=kr&pageSize=${PAGE_SIZE}`
   );
   
   const response = await fetch(url);
