@@ -4,11 +4,41 @@ let page = 1;
 let totalPage = 1;
 const PAGE_SIZE = 10;
 let newsList = [];
+let searchInput = document.getElementById("search-input")
+let addButton = document.getElementById("search-button")
+
 let url = new URL(
   `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&pageSize=${PAGE_SIZE}`
 );
 const menus = document.querySelectorAll("#menu-list button");
 menus.forEach((menu) => menu.addEventListener("click", (e) => getNewsByCategory(e)));
+
+addButton.addEventListener("click",addTask);
+
+searchInput.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    getNewsByKeyword();
+  }
+});
+
+function addTask(){
+//addTask 함수는 단지 task 객체를 newsList에 추가하는 역할. 
+//ToDolist와 달리 getNewsByKeyword 함수로 호출.
+//searchInput의 keydown 이벤트 리스너를 수정하여 엔터키를 누르면 getNewsByKeyword 함수가 호출되도록 변경.
+
+let taskValue = searchInput.value;
+  if (taskValue === "") return alert("검색어를 입력 해주세요");
+  let task = {
+    //id: randomIDGenerate(),
+    taskContent: searchInput.value,
+    isComplete: false
+  };
+  
+  newsList.push(task); //taskList.push(taskContent); task객체를 사용하여 변경
+  render();
+  console.log(newsList);
+  
+}
 
 const getNews = async () => {
   try {
