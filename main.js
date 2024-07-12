@@ -81,24 +81,24 @@ const getNews = async () => {
 
 
 
-const getLatestNews = ()=>{
+const getLatestNews = async ()=>{
  page = 1; // 새로 검색시 1로 리셋
  url = new URL(
    // `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&pageSize=${PAGE_SIZE}`
   
   );
-  getNews();
+  await getNews();
 };
 
-  const getNewsByCategory = (event) => {
+  const getNewsByCategory = async (event) => {
     const category = event.target.textContent.toLowerCase();
     page = 1;
     console.log("category");
     url = new URL(
       `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${category}&pageSize=${PAGE_SIZE}`)
       console.log("SSS",category);
-      getNews();
+      await getNews();
 
   };
   
@@ -140,10 +140,10 @@ const render = () => {
 //2. 카테고리별 뉴스 가져오기
 //3. 그 뉴스를 보여주기
 
-const pageClick = (pageNum) => {
+const pageClick = async (pageNum) => {
   page = pageNum;
   window.scrollTo({ top: 0, behavior: "smooth" });
-  getNews();
+  await getNews();
 };
 
 const renderPagination = () => {
@@ -186,7 +186,7 @@ const renderPagination = () => {
 
 
 
-const getNewsByKeyword = () => {
+const getNewsByKeyword = async () => {
   const keyword = document.getElementById("search-input").value;
   page = 1;
   url = new URL(
@@ -194,7 +194,7 @@ const getNewsByKeyword = () => {
   
   );
 
-    getNews();
+  await getNews();
   };
 
 const errorRender = (message) => {
