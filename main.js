@@ -110,6 +110,12 @@ const render = () => {
 //2. 카테고리별 뉴스 가져오기
 //3. 그 뉴스를 보여주기
 
+const pageClick = (pageNum) => {
+  page = pageNum;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  getNews();
+};
+
 const renderPagination = () => {
   let paginationHTML = ``;
   let pageGroup = Math.ceil(page / 5);
@@ -148,11 +154,7 @@ const renderPagination = () => {
   //document.querySelector(".pagination").innerHTML = paginationHTML;
 };
 
-const pageClick = (pageNum) => {
-  page = pageNum;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  getNews();
-};
+
 
 const getNewsByKeyword = () => {
   const keyword = document.getElementById("search-input").value;
